@@ -46,6 +46,8 @@ public class Passagem {
 
     private String url;
 
+    private BigDecimal preco;
+
     @ManyToOne
     @JoinColumn(name = "fonte_id", nullable = false)
     private FontePassagem fonte;

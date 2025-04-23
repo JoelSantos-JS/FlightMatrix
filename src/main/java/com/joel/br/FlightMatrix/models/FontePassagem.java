@@ -22,7 +22,7 @@ public class FontePassagem  {
 
 
     @Column(nullable = false)
-    private Long url;
+    private String url;
 
     @Column(nullable = false)
     private String tipo;
