@@ -1,4 +1,4 @@
-# FlightMatrix
+# FlightMatrix (EM PROGRESSO)
 
 FlightMatrix é um sistema avançado de monitoramento de passagens aéreas que utiliza tecnologias modernas e inteligência artificial para identificar as melhores oportunidades de compra de passagens aéreas.
 
