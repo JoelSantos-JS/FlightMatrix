@@ -48,6 +48,11 @@ public class AlertaService {
         return alertaRepository.save(alerta);
     }
 
+    public void registrarNotificacao(Alerta alerta) {
+        alerta.setUltimaNotificacao(LocalDateTime.now());
+        alertaRepository.save(alerta);
+    }
+
 
     public Alerta atualizarAlerta(Long id, Alerta alertaAtualizado){
 
