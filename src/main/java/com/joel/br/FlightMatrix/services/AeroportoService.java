@@ -47,6 +47,40 @@ public class AeroportoService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
+    public AeroportoDTO criar(AeroportoDTO aeroportoDTO) {
+        // Adicionar validação se o código já existe, se necessário
+        if (aeroportoRepository.existsById(aeroportoDTO.getCodigo())) {
+            // Lançar uma exceção apropriada, ex: AirportAlreadyExistsException
+            throw new IllegalArgumentException("Aeroporto com código " + aeroportoDTO.getCodigo() + " já existe.");
+        }
+        Aeroporto aeroporto = converterParaModel(aeroportoDTO);
+        Aeroporto aeroportoSalvo = aeroportoRepository.save(aeroporto);
+        return converterParaDto(aeroportoSalvo);
+    }
+
+    @Transactional
+    public AeroportoDTO atualizar(String codigo, AeroportoDTO aeroportoDTO) {
+        Aeroporto aeroportoExistente = aeroportoRepository.findById(codigo)
+                .orElseThrow(() -> new ResourceNotFoundException("Aeroporto não encontrado com código: " + codigo));
+
+        aeroportoExistente.setNome(aeroportoDTO.getNome());
+        aeroportoExistente.setCidade(aeroportoDTO.getCidade());
+        aeroportoExistente.setPais(aeroportoDTO.getPais());
+        // Se o código puder ser alterado, adicione lógica para isso (geralmente não é uma boa ideia para PKs)
+
+        Aeroporto aeroportoAtualizado = aeroportoRepository.save(aeroportoExistente);
+        return converterParaDto(aeroportoAtualizado);
+    }
+
+    @Transactional
+    public void remover(String codigo) {
+        if (!aeroportoRepository.existsById(codigo)) {
+            throw new ResourceNotFoundException("Aeroporto não encontrado com código: " + codigo);
+        }
+        aeroportoRepository.deleteById(codigo);
+    }
+
     private AeroportoDTO converterParaDto(Aeroporto aeroporto) {
          AeroportoDTO aeroportoDTO = new AeroportoDTO();
 
