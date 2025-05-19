@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Busca - API Direct</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header-bar {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 40px 0;
+        }
+        .flight-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+        .flight-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6a11cb;
+        }
+        .flight-leg {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .outbound {
+            background-color: #f0f7ff;
+        }
+        .inbound {
+            background-color: #fff0f7;
+        }
+        .airline-logo {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+        }
+        .no-results {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .flight-time {
+            font-weight: bold;
+        }
+        .flight-duration {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .flight-stops {
+            color: #888;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header e Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/direct/">
+                <strong>API</strong>Direct
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/direct/">Nova Busca</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Voltar para FlightMatrix</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header com detalhes da busca -->
+    <div class="header-bar">
+        <div class="container">
+            <h1>Resultados da Busca</h1>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h3><span th:text="${origem}"></span> → <span th:text="${destino}"></span></h3>
+                    <p>
+                        <span th:text="${#temporals.format(dataIda, 'dd/MM/yyyy')}"></span>
+                        - <span th:text="${#temporals.format(dataVolta, 'dd/MM/yyyy')}"></span>
+                    </p>
+                </div>
+                <div>
+                    <h4><span th:text="${totalResultados}"></span> resultados encontrados</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resultados da busca -->
+    <div class="container mt-4">
+        <!-- Sem resultados -->
+        <div th:if="${resultados.empty}" class="no-results">
+            <h3>Nenhum voo encontrado</h3>
+            <p>Tente mudar os parâmetros da sua busca.</p>
+            <a href="/direct/" class="btn btn-primary mt-3">Voltar para a busca</a>
+        </div>
+
+        <!-- Lista de voos -->
+        <div th:if="${!resultados.empty}">
+            <div class="mb-4">
+                <p class="text-muted">
+                    Mostrando voos de <strong th:text="${origem}"></strong> para <strong th:text="${destino}"></strong>
+                    no período de <strong th:text="${#temporals.format(dataIda, 'dd/MM/yyyy')}"></strong> 
+                    a <strong th:text="${#temporals.format(dataVolta, 'dd/MM/yyyy')}"></strong>.
+                </p>
+            </div>
+            
+            <div th:each="resultado : ${resultados}" class="flight-card">
+                <div class="row">
+                    <!-- Preço e Compra -->
+                    <div class="col-md-3 d-flex align-items-center justify-content-center mb-3 mb-md-0">
+                        <div class="text-center">
+                            <div class="price">
+                                <span th:if="${resultado.moeda == 'BRL'}">R$</span>
+                                <span th:unless="${resultado.moeda == 'BRL'}" th:text="${resultado.moeda}"></span> 
+                                <span th:text="${#numbers.formatDecimal(resultado.preco, 1, 'POINT', 2, 'COMMA')}"></span>
+                            </div>
+                            <a th:if="${resultado.deep_link != ''}" th:href="${resultado.deep_link}" 
+                               target="_blank" class="btn btn-primary mt-2">Reservar</a>
+                            <a th:unless="${resultado.deep_link != ''}" href="#" 
+                               class="btn btn-secondary mt-2 disabled">Indisponível</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Detalhes do Voo -->
+                    <div class="col-md-9">
+                        <!-- Voo de Ida -->
+                        <div class="flight-leg outbound">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-primary">VOO DE IDA</span>
+                                <div>
+                                    <img th:src="${resultado.logoUrlIda}" 
+                                         alt="Logo da companhia" class="airline-logo">
+                                    <span th:text="${resultado.companhiaIda}"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="flight-time" th:text="${resultado.partidaIda}"></div>
+                                    <div class="text-muted" th:text="${origem}"></div>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <div class="flight-duration">
+                                        <span th:text="${resultado.duracaoIda / 60}"></span>h 
+                                        <span th:text="${resultado.duracaoIda % 60}"></span>m
+                                    </div>
+                                    <div class="flight-stops">
+                                        <span th:if="${resultado.escalasIda > 0}" th:text="${resultado.escalasIda} + ' escala(s)'"></span>
+                                        <span th:unless="${resultado.escalasIda > 0}">Direto</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 text-end">
+                                    <div class="flight-time" th:text="${resultado.chegadaIda}"></div>
+                                    <div class="text-muted" th:text="${destino}"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Voo de Volta -->
+                        <div class="flight-leg inbound">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-danger">VOO DE VOLTA</span>
+                                <div>
+                                    <img th:src="${resultado.logoUrlVolta}" 
+                                         alt="Logo da companhia" class="airline-logo">
+                                    <span th:text="${resultado.companhiaVolta}"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="flight-time" th:text="${resultado.partidaVolta}"></div>
+                                    <div class="text-muted" th:text="${destino}"></div>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <div class="flight-duration">
+                                        <span th:text="${resultado.duracaoVolta / 60}"></span>h 
+                                        <span th:text="${resultado.duracaoVolta % 60}"></span>m
+                                    </div>
+                                    <div class="flight-stops">
+                                        <span th:if="${resultado.escalasVolta > 0}" th:text="${resultado.escalasVolta} + ' escala(s)'"></span>
+                                        <span th:unless="${resultado.escalasVolta > 0}">Direto</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 text-end">
+                                    <div class="flight-time" th:text="${resultado.chegadaVolta}"></div>
+                                    <div class="text-muted" th:text="${origem}"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-4">
+        <div class="container text-center">
+            <p>© 2023 API Direct - Demonstração de uso do AsyncHttpClient com a API Booking Data</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

@@ -15,6 +15,8 @@ public interface AlertaRepository extends JpaRepository<Alerta, Long> {
 
     List<Alerta> findByAtivo(Boolean ativo);
 
+    List<Alerta> findByUsuarioAndAtivo(Usuario usuario, Boolean ativo);
+
     List<Alerta> findByOrigemAndDestino(Aeroporto origem, Aeroporto destino);
 
     @Query("SELECT a FROM Alerta a WHERE a.ativo = true AND " +

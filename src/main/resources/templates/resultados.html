@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Busca - FlightMatrix</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header-bar {
+            background: linear-gradient(135deg, #001f3f 0%, #1e3c72 100%);
+            color: white;
+            padding: 40px 0;
+        }
+        .flight-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+        .flight-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+        .previous-price {
+            text-decoration: line-through;
+            color: #888;
+        }
+        .promotion-badge {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .airline-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        .no-results {
+            text-align: center;
+            padding: 50px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header e Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <strong>Flight</strong>Matrix
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ofertas">Ofertas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header com detalhes da busca -->
+    <div class="header-bar">
+        <div class="container">
+            <h1>Resultados da Busca</h1>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h3><span th:text="${origem}"></span> → <span th:text="${destino}"></span></h3>
+                    <p>
+                        <span th:text="${#temporals.format(dataIda, 'dd/MM/yyyy')}"></span>
+                        <span th:if="${dataVolta != null}">
+                            - <span th:text="${#temporals.format(dataVolta, 'dd/MM/yyyy')}"></span>
+                        </span>
+                    </p>
+                </div>
+                <div>
+                    <h4><span th:text="${totalPassagens}"></span> resultados encontrados</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resultados da busca -->
+    <div class="container mt-4">
+        <!-- Sem resultados -->
+        <div th:if="${passagens.empty}" class="no-results">
+            <h3>Nenhuma passagem encontrada</h3>
+            <p>Tente mudar os parâmetros da sua busca.</p>
+            <a href="/" class="btn btn-primary mt-3">Voltar para a busca</a>
+        </div>
+
+        <!-- Lista de passagens -->
+        <div th:each="passagem : ${passagens}" class="flight-card">
+            <div class="row">
+                <div class="col-md-2 d-flex align-items-center">
+                    <img th:src="${passagem.logoUrl != null ? passagem.logoUrl : 'https://logos.skyscnr.com/images/airlines/favicon/airline.png'}" 
+                         alt="Logo da companhia" class="airline-logo">
+                    <span class="ms-2" th:text="${passagem.companhiaAerea}"></span>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <strong th:text="${passagem.origem.codigo}"></strong>
+                            <p th:text="${passagem.origem.cidade}"></p>
+                        </div>
+                        <div class="text-center">
+                            <i class="fas fa-plane"></i>
+                            <p th:if="${passagem.duracaoMinutos != null}">
+                                <span th:text="${passagem.duracaoMinutos / 60}"></span>h 
+                                <span th:text="${passagem.duracaoMinutos % 60}"></span>m
+                            </p>
+                            <p th:if="${passagem.escalas > 0}" class="text-muted">
+                                <span th:text="${passagem.escalas}"></span> escala(s)
+                            </p>
+                            <p th:unless="${passagem.escalas > 0}" class="text-muted">Voo direto</p>
+                        </div>
+                        <div>
+                            <strong th:text="${passagem.destino.codigo}"></strong>
+                            <p th:text="${passagem.destino.cidade}"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <p>
+                        <strong>Data ida:</strong> 
+                        <span th:text="${#temporals.format(passagem.dataIda, 'dd/MM/yyyy')}"></span>
+                    </p>
+                    <p th:if="${passagem.dataVolta != null}">
+                        <strong>Data volta:</strong> 
+                        <span th:text="${#temporals.format(passagem.dataVolta, 'dd/MM/yyyy')}"></span>
+                    </p>
+                    <p class="text-muted">
+                        <small>Atualizado em: 
+                            <span th:text="${#temporals.format(passagem.dataHoraConsulta, 'dd/MM/yyyy HH:mm')}"></span>
+                        </small>
+                    </p>
+                </div>
+                <div class="col-md-3 text-end">
+                    <div class="price" th:text="${#numbers.formatCurrency(passagem.preco)}"></div>
+                    <div th:if="${passagem.precoAnterior != null && passagem.precoAnterior > passagem.preco}">
+                        <span class="previous-price" th:text="${#numbers.formatCurrency(passagem.precoAnterior)}"></span>
+                        <span class="promotion-badge">Promoção!</span>
+                    </div>
+                    <div th:if="${passagem.precoOriginal != null && passagem.moedaOriginal != null}">
+                        <span class="original-price text-muted">
+                            <small>Preço original: 
+                                <span th:if="${passagem.moedaOriginal == 'USD'}">$</span>
+                                <span th:unless="${passagem.moedaOriginal == 'USD'}" th:text="${passagem.moedaOriginal}"></span>
+                                <span th:text="${#numbers.formatDecimal(passagem.precoOriginal, 1, 'POINT', 2, 'COMMA')}"></span>
+                            </small>
+                        </span>
+                    </div>
+                    <a th:href="${passagem.url}" target="_blank" class="btn btn-primary mt-2">Ver Oferta</a>
+                    <p class="text-muted mt-1">
+                        <small>Fonte: <span th:text="${passagem.fonte?.nome}"></span></small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-4">
+        <div class="container text-center">
+            <p>© 2023 FlightMatrix - Caçador de Tarifas Aéreas | Versão de Demonstração</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html> 

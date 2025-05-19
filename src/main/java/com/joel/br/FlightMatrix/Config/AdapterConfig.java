@@ -1,6 +1,5 @@
 package com.joel.br.FlightMatrix.Config;
 
-import com.joel.br.FlightMatrix.Factory.FontePassagemFactory;
 import com.joel.br.FlightMatrix.models.FontePassagem;
 import com.joel.br.FlightMatrix.repository.FontePassagemRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +16,6 @@ import java.util.List;
 public class AdapterConfig {
 
     private final FontePassagemRepository fontePassagemRepository;
-    private final FontePassagemFactory fontePassagemFactory;
 
     /**
      * Inicializa as fontes padrão no sistema quando a aplicação é iniciada
@@ -72,23 +70,11 @@ public class AdapterConfig {
         log.info("Fontes padrão inicializadas com sucesso: {} fontes cadastradas", fontes.size());
 
         // Testar adaptadores
-        testarAdaptadores(fontes);
+
     }
 
     /**
      * Testa se os adaptadores podem ser criados corretamente
      */
-    private void testarAdaptadores(List<FontePassagem> fontes) {
-        for (FontePassagem fonte : fontes) {
-            try {
-                fontePassagemFactory.criarAdapter(fonte).ifPresentOrElse(
-                        adapter -> log.info("Adaptador para fonte {} criado com sucesso: {}",
-                                fonte.getNome(), adapter.getClass().getSimpleName()),
-                        () -> log.warn("Não foi possível criar adaptador para fonte: {}", fonte.getNome())
-                );
-            } catch (Exception e) {
-                log.error("Erro ao criar adaptador para fonte {}: {}", fonte.getNome(), e.getMessage(), e);
-            }
-        }
-    }
+
 }

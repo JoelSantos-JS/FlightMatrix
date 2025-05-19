@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Direta API - Booking Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 30px;
+        }
+        .search-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: -50px;
+            position: relative;
+        }
+        .api-info {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        .code-sample {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header e Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <strong>API</strong>Direct
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Voltar para FlightMatrix</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container text-center">
+            <h1 class="display-4">Consulta Direta a API Booking Data</h1>
+            <p class="lead">Use AsyncHttpClient para buscar voos diretamente da API</p>
+        </div>
+    </div>
+
+    <!-- Formulário de Busca -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="search-box">
+                    <ul class="nav nav-tabs" id="searchTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="ida-volta-tab" data-bs-toggle="tab" data-bs-target="#ida-volta" 
+                                    type="button" role="tab" aria-controls="ida-volta" aria-selected="true">
+                                Ida e Volta
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="somente-ida-tab" data-bs-toggle="tab" data-bs-target="#somente-ida" 
+                                    type="button" role="tab" aria-controls="somente-ida" aria-selected="false">
+                                Somente Ida
+                            </button>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content pt-3" id="searchTabContent">
+                        <!-- Formulário de Ida e Volta -->
+                        <div class="tab-pane fade show active" id="ida-volta" role="tabpanel" aria-labelledby="ida-volta-tab">
+                            <form action="/direct/busca-volta" method="get">
+                                <div class="row g-3">
+                                    <div class="col-md-3">
+                                        <label for="origem-ida-volta" class="form-label">Origem (código IATA)</label>
+                                        <input type="text" class="form-control" id="origem-ida-volta" name="origem" 
+                                               placeholder="ex: GRU, JFK" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="destino-ida-volta" class="form-label">Destino (código IATA)</label>
+                                        <input type="text" class="form-control" id="destino-ida-volta" name="destino"
+                                               placeholder="ex: CDG, LAX" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="dataIda" class="form-label">Data de Ida</label>
+                                        <input type="date" id="dataIda" name="dataIda" class="form-control" 
+                                               th:min="${hoje}" th:value="${amanha}" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="dataVolta" class="form-label">Data de Volta</label>
+                                        <input type="date" id="dataVolta" name="dataVolta" class="form-control" 
+                                               th:min="${amanha}" th:value="${umMesDepois}" required>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="cabinClass-ida-volta" class="form-label">Classe</label>
+                                        <select class="form-select" id="cabinClass-ida-volta" name="cabinClass">
+                                            <option value="ECONOMY">Econômica</option>
+                                            <option value="BUSINESS">Executiva</option>
+                                            <option value="FIRST">Primeira</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary">Buscar Voos</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Formulário de Somente Ida -->
+                        <div class="tab-pane fade" id="somente-ida" role="tabpanel" aria-labelledby="somente-ida-tab">
+                            <form action="/direct/busca-ida" method="get">
+                                <div class="row g-3">
+                                    <div class="col-md-3">
+                                        <label for="origem-ida" class="form-label">Origem (código IATA)</label>
+                                        <input type="text" class="form-control" id="origem-ida" name="origem" 
+                                               placeholder="ex: GRU, JFK" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="destino-ida" class="form-label">Destino (código IATA)</label>
+                                        <input type="text" class="form-control" id="destino-ida" name="destino"
+                                               placeholder="ex: CDG, LAX" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="dataIdaSomente" class="form-label">Data de Ida</label>
+                                        <input type="date" id="dataIdaSomente" name="dataIda" class="form-control" 
+                                               th:min="${hoje}" th:value="${amanha}" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="cabinClass-ida" class="form-label">Classe</label>
+                                        <select class="form-select" id="cabinClass-ida" name="cabinClass">
+                                            <option value="ECONOMY">Econômica</option>
+                                            <option value="BUSINESS">Executiva</option>
+                                            <option value="FIRST">Primeira</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary">Buscar Voos</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Info Section -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="api-info">
+                    <h3>Sobre esta Página</h3>
+                    <p>Esta página realiza consultas diretas à API Booking Data usando o AsyncHttpClient. O código Java utilizado é similar a este:</p>
+                    
+                    <div class="code-sample">
+                        <pre>
+AsyncHttpClient client = new DefaultAsyncHttpClient();
+client.prepare("GET", "https://booking-data.p.rapidapi.com/booking-app/flights/search-return?fromId=GRU&toId=JFK&departureDate=2023-06-01&returnDate=2023-06-15&cabinClass=ECONOMY&numberOfStops=all")
+    .setHeader("x-rapidapi-key", "48d25ca291msh89bb70a6820e66ap1c495cjsnc5b6a92e85b7")
+    .setHeader("x-rapidapi-host", "booking-data.p.rapidapi.com")
+    .execute()
+    .toCompletableFuture()
+    .thenAccept(System.out::println)
+    .join();
+
+client.close();</pre>
+                    </div>
+                    
+                    <p class="mt-3">Os resultados obtidos são processados e exibidos de forma estruturada.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-4">
+        <div class="container text-center">
+            <p>© 2023 API Direct - Demonstração de uso do AsyncHttpClient com a API Booking Data</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

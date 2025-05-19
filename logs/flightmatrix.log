@@ -1,0 +1,297 @@
+2025-05-19T15:47:53.231-03:00  INFO 12180 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : Starting FlightMatrixApplication using Java 23.0.2 with PID 12180 (C:\Users\Joel\Desktop\FlightMatrix\target\classes started by Joel in C:\Users\Joel\Desktop\FlightMatrix)
+2025-05-19T15:47:53.234-03:00  INFO 12180 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-05-19T15:47:54.118-03:00  INFO 12180 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-19T15:47:54.203-03:00  INFO 12180 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 7 JPA repository interfaces.
+2025-05-19T15:47:55.007-03:00  INFO 12180 --- [FlightMatrix] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-19T15:47:55.023-03:00  INFO 12180 --- [FlightMatrix] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-19T15:47:55.024-03:00  INFO 12180 --- [FlightMatrix] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-05-19T15:47:55.109-03:00  INFO 12180 --- [FlightMatrix] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-19T15:47:55.109-03:00  INFO 12180 --- [FlightMatrix] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1809 ms
+2025-05-19T15:47:55.152-03:00  INFO 12180 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-19T15:47:55.396-03:00  INFO 12180 --- [FlightMatrix] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:flightmatrixdb user=SA
+2025-05-19T15:47:55.399-03:00  INFO 12180 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-19T15:47:55.415-03:00  INFO 12180 --- [FlightMatrix] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:flightmatrixdb'
+2025-05-19T15:47:55.578-03:00  INFO 12180 --- [FlightMatrix] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-19T15:47:55.647-03:00  INFO 12180 --- [FlightMatrix] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-19T15:47:55.689-03:00  INFO 12180 --- [FlightMatrix] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-19T15:47:55.992-03:00  INFO 12180 --- [FlightMatrix] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-19T15:47:56.063-03:00  WARN 12180 --- [FlightMatrix] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-19T15:47:57.260-03:00  INFO 12180 --- [FlightMatrix] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-19T15:47:57.362-03:00  INFO 12180 --- [FlightMatrix] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T15:47:57.829-03:00  INFO 12180 --- [FlightMatrix] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-19T15:47:58.679-03:00  WARN 12180 --- [FlightMatrix] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'alertaController' defined in file [C:\Users\Joel\Desktop\FlightMatrix\target\classes\com\joel\br\FlightMatrix\controller\AlertaController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'alertaService' defined in file [C:\Users\Joel\Desktop\FlightMatrix\target\classes\com\joel\br\FlightMatrix\services\AlertaService.class]: Unsatisfied dependency expressed through constructor parameter 5: Error creating bean with name 'notificacaoService' defined in file [C:\Users\Joel\Desktop\FlightMatrix\target\classes\com\joel\br\FlightMatrix\services\NotificacaoService.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'alertaService': Requested bean is currently in creation: Is there an unresolvable circular reference?
+2025-05-19T15:47:58.680-03:00  INFO 12180 --- [FlightMatrix] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T15:47:58.683-03:00  INFO 12180 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-19T15:47:58.686-03:00  INFO 12180 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-19T15:47:58.688-03:00  INFO 12180 --- [FlightMatrix] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-05-19T15:47:58.702-03:00  INFO 12180 --- [FlightMatrix] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-19T15:47:58.725-03:00 ERROR 12180 --- [FlightMatrix] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The dependencies of some of the beans in the application context form a cycle:
+
+   alertaController defined in file [C:\Users\Joel\Desktop\FlightMatrix\target\classes\com\joel\br\FlightMatrix\controller\AlertaController.class]
+┌─────┐
+|  alertaService defined in file [C:\Users\Joel\Desktop\FlightMatrix\target\classes\com\joel\br\FlightMatrix\services\AlertaService.class]
+↑     ↓
+|  notificacaoService defined in file [C:\Users\Joel\Desktop\FlightMatrix\target\classes\com\joel\br\FlightMatrix\services\NotificacaoService.class]
+└─────┘
+
+
+Action:
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to remove the dependency cycle between beans. As a last resort, it may be possible to break the cycle automatically by setting spring.main.allow-circular-references to true.
+
+2025-05-19T15:53:34.727-03:00  INFO 19064 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : Starting FlightMatrixApplication using Java 23.0.2 with PID 19064 (C:\Users\Joel\Desktop\FlightMatrix\target\classes started by Joel in C:\Users\Joel\Desktop\FlightMatrix)
+2025-05-19T15:53:34.730-03:00  INFO 19064 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-05-19T15:53:35.595-03:00  INFO 19064 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-19T15:53:35.681-03:00  INFO 19064 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 7 JPA repository interfaces.
+2025-05-19T15:53:36.455-03:00  INFO 19064 --- [FlightMatrix] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-19T15:53:36.470-03:00  INFO 19064 --- [FlightMatrix] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-19T15:53:36.470-03:00  INFO 19064 --- [FlightMatrix] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-05-19T15:53:36.558-03:00  INFO 19064 --- [FlightMatrix] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-19T15:53:36.558-03:00  INFO 19064 --- [FlightMatrix] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1757 ms
+2025-05-19T15:53:36.604-03:00  INFO 19064 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-19T15:53:36.849-03:00  INFO 19064 --- [FlightMatrix] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:flightmatrixdb user=SA
+2025-05-19T15:53:36.851-03:00  INFO 19064 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-19T15:53:36.868-03:00  INFO 19064 --- [FlightMatrix] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:flightmatrixdb'
+2025-05-19T15:53:37.044-03:00  INFO 19064 --- [FlightMatrix] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-19T15:53:37.114-03:00  INFO 19064 --- [FlightMatrix] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-19T15:53:37.157-03:00  INFO 19064 --- [FlightMatrix] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-19T15:53:37.445-03:00  INFO 19064 --- [FlightMatrix] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-19T15:53:37.496-03:00  WARN 19064 --- [FlightMatrix] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-19T15:53:38.697-03:00  INFO 19064 --- [FlightMatrix] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-19T15:53:38.802-03:00  INFO 19064 --- [FlightMatrix] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T15:53:39.291-03:00  INFO 19064 --- [FlightMatrix] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-19T15:53:40.111-03:00  WARN 19064 --- [FlightMatrix] [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-19T15:53:40.228-03:00  WARN 19064 --- [FlightMatrix] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'resumoPromocoesScheduler' defined in file [C:\Users\Joel\Desktop\FlightMatrix\target\classes\com\joel\br\FlightMatrix\Scheduler\ResumoPromocoesScheduler.class]: Encountered invalid @Scheduled method 'enviarResumoDiario': Could not resolve placeholder 'app.scheduler.resumo-diario.cron' in value "${app.scheduler.resumo-diario.cron}"
+2025-05-19T15:53:40.229-03:00  INFO 19064 --- [FlightMatrix] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T15:53:40.231-03:00  INFO 19064 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-19T15:53:40.233-03:00  INFO 19064 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-19T15:53:40.235-03:00  INFO 19064 --- [FlightMatrix] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-05-19T15:53:40.248-03:00  INFO 19064 --- [FlightMatrix] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-19T15:53:40.269-03:00 ERROR 19064 --- [FlightMatrix] [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'resumoPromocoesScheduler' defined in file [C:\Users\Joel\Desktop\FlightMatrix\target\classes\com\joel\br\FlightMatrix\Scheduler\ResumoPromocoesScheduler.class]: Encountered invalid @Scheduled method 'enviarResumoDiario': Could not resolve placeholder 'app.scheduler.resumo-diario.cron' in value "${app.scheduler.resumo-diario.cron}"
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.3.jar:3.2.3]
+	at com.joel.br.FlightMatrix.FlightMatrixApplication.main(FlightMatrixApplication.java:15) ~[classes/:na]
+Caused by: java.lang.IllegalStateException: Encountered invalid @Scheduled method 'enviarResumoDiario': Could not resolve placeholder 'app.scheduler.resumo-diario.cron' in value "${app.scheduler.resumo-diario.cron}"
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.processScheduledTask(ScheduledAnnotationBeanPostProcessor.java:513) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.processScheduledSync(ScheduledAnnotationBeanPostProcessor.java:352) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.processScheduled(ScheduledAnnotationBeanPostProcessor.java:331) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.lambda$postProcessAfterInitialization$1(ScheduledAnnotationBeanPostProcessor.java:303) ~[spring-context-6.1.4.jar:6.1.4]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.lambda$postProcessAfterInitialization$2(ScheduledAnnotationBeanPostProcessor.java:303) ~[spring-context-6.1.4.jar:6.1.4]
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:987) ~[na:na]
+	at org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor.postProcessAfterInitialization(ScheduledAnnotationBeanPostProcessor.java:302) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsAfterInitialization(AbstractAutowireCapableBeanFactory.java:438) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1789) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.4.jar:6.1.4]
+	... 15 common frames omitted
+
+2025-05-19T15:54:57.784-03:00  INFO 12500 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : Starting FlightMatrixApplication using Java 23.0.2 with PID 12500 (C:\Users\Joel\Desktop\FlightMatrix\target\classes started by Joel in C:\Users\Joel\Desktop\FlightMatrix)
+2025-05-19T15:54:57.787-03:00  INFO 12500 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-05-19T15:54:58.694-03:00  INFO 12500 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-19T15:54:58.786-03:00  INFO 12500 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 82 ms. Found 7 JPA repository interfaces.
+2025-05-19T15:54:59.583-03:00  INFO 12500 --- [FlightMatrix] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-19T15:54:59.599-03:00  INFO 12500 --- [FlightMatrix] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-19T15:54:59.599-03:00  INFO 12500 --- [FlightMatrix] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-05-19T15:54:59.685-03:00  INFO 12500 --- [FlightMatrix] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-19T15:54:59.685-03:00  INFO 12500 --- [FlightMatrix] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1825 ms
+2025-05-19T15:54:59.728-03:00  INFO 12500 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-19T15:54:59.969-03:00  INFO 12500 --- [FlightMatrix] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:flightmatrixdb user=SA
+2025-05-19T15:54:59.971-03:00  INFO 12500 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-19T15:54:59.988-03:00  INFO 12500 --- [FlightMatrix] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:flightmatrixdb'
+2025-05-19T15:55:00.160-03:00  INFO 12500 --- [FlightMatrix] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-19T15:55:00.231-03:00  INFO 12500 --- [FlightMatrix] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-19T15:55:00.278-03:00  INFO 12500 --- [FlightMatrix] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-19T15:55:00.604-03:00  INFO 12500 --- [FlightMatrix] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-19T15:55:00.657-03:00  WARN 12500 --- [FlightMatrix] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-19T15:55:01.873-03:00  INFO 12500 --- [FlightMatrix] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-19T15:55:01.976-03:00  INFO 12500 --- [FlightMatrix] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T15:55:02.468-03:00  INFO 12500 --- [FlightMatrix] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-19T15:55:03.335-03:00  WARN 12500 --- [FlightMatrix] [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-19T15:55:03.487-03:00  WARN 12500 --- [FlightMatrix] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-19T15:55:03.952-03:00  INFO 12500 --- [FlightMatrix] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-05-19T15:55:03.967-03:00  INFO 12500 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Inicializando fontes de passagens aéreas...
+2025-05-19T15:55:04.049-03:00  INFO 12500 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Nenhuma fonte cadastrada. Inicializando fontes padrão...
+2025-05-19T15:55:04.085-03:00  INFO 12500 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Fontes padrão inicializadas com sucesso: 3 fontes cadastradas
+2025-05-19T15:55:04.086-03:00  INFO 12500 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : Started FlightMatrixApplication in 6.849 seconds (process running for 7.347)
+2025-05-19T15:59:17.778-03:00  INFO 12500 --- [FlightMatrix] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T15:59:17.780-03:00  INFO 12500 --- [FlightMatrix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-19T15:59:17.783-03:00  INFO 12500 --- [FlightMatrix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-19T15:59:26.024-03:00  INFO 18308 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : Starting FlightMatrixApplication using Java 23.0.2 with PID 18308 (C:\Users\Joel\Desktop\FlightMatrix\target\classes started by Joel in C:\Users\Joel\Desktop\FlightMatrix)
+2025-05-19T15:59:26.027-03:00  INFO 18308 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-05-19T15:59:26.894-03:00  INFO 18308 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-19T15:59:26.983-03:00  INFO 18308 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 7 JPA repository interfaces.
+2025-05-19T15:59:27.766-03:00  INFO 18308 --- [FlightMatrix] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-19T15:59:27.781-03:00  INFO 18308 --- [FlightMatrix] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-19T15:59:27.781-03:00  INFO 18308 --- [FlightMatrix] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-05-19T15:59:27.864-03:00  INFO 18308 --- [FlightMatrix] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-19T15:59:27.865-03:00  INFO 18308 --- [FlightMatrix] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1764 ms
+2025-05-19T15:59:27.910-03:00  INFO 18308 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-19T15:59:28.157-03:00  INFO 18308 --- [FlightMatrix] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:flightmatrixdb user=SA
+2025-05-19T15:59:28.160-03:00  INFO 18308 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-19T15:59:28.178-03:00  INFO 18308 --- [FlightMatrix] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:flightmatrixdb'
+2025-05-19T15:59:28.357-03:00  INFO 18308 --- [FlightMatrix] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-19T15:59:28.427-03:00  INFO 18308 --- [FlightMatrix] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-19T15:59:28.471-03:00  INFO 18308 --- [FlightMatrix] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-19T15:59:28.761-03:00  INFO 18308 --- [FlightMatrix] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-19T15:59:28.811-03:00  WARN 18308 --- [FlightMatrix] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-19T15:59:30.005-03:00  INFO 18308 --- [FlightMatrix] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-19T15:59:30.108-03:00  INFO 18308 --- [FlightMatrix] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T15:59:30.583-03:00  INFO 18308 --- [FlightMatrix] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-19T15:59:31.570-03:00  WARN 18308 --- [FlightMatrix] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-19T15:59:31.602-03:00  INFO 18308 --- [FlightMatrix] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2025-05-19T15:59:32.065-03:00  INFO 18308 --- [FlightMatrix] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-05-19T15:59:32.081-03:00  INFO 18308 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Inicializando fontes de passagens aéreas...
+2025-05-19T15:59:32.166-03:00  INFO 18308 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Nenhuma fonte cadastrada. Inicializando fontes padrão...
+2025-05-19T15:59:32.204-03:00  INFO 18308 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Fontes padrão inicializadas com sucesso: 3 fontes cadastradas
+2025-05-19T15:59:32.204-03:00  INFO 18308 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : Started FlightMatrixApplication in 6.749 seconds (process running for 7.249)
+2025-05-19T15:59:48.971-03:00  INFO 18308 --- [FlightMatrix] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-19T15:59:48.972-03:00  INFO 18308 --- [FlightMatrix] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-19T15:59:48.973-03:00  INFO 18308 --- [FlightMatrix] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-19T16:00:02.838-03:00  INFO 18308 --- [FlightMatrix] [http-nio-8080-exec-3] c.j.b.F.controller.WebViewController     : Acessando página de ofertas
+2025-05-19T16:00:08.252-03:00  INFO 18308 --- [FlightMatrix] [http-nio-8080-exec-4] c.j.b.F.controller.PassagemController    : Requisição de busca de ofertas: GRU -> JFK (período: 2023-06-01 a 2023-07-30)
+2025-05-19T16:00:08.252-03:00  INFO 18308 --- [FlightMatrix] [http-nio-8080-exec-4] c.j.b.F.services.DealDiscoveryService    : Buscando melhores ofertas para rota GRU -> JFK entre 2023-06-01 e 2023-07-30
+2025-05-19T16:00:08.287-03:00  INFO 18308 --- [FlightMatrix] [http-nio-8080-exec-4] c.j.b.F.services.DealDiscoveryService    : Iniciando análise para identificar melhores ofertas entre 0 passagens
+2025-05-19T16:00:08.287-03:00  INFO 18308 --- [FlightMatrix] [http-nio-8080-exec-4] c.j.b.F.services.DealDiscoveryService    : Identificadas 0 ofertas imperdíveis
+2025-05-19T16:04:10.761-03:00  INFO 18308 --- [FlightMatrix] [http-nio-8080-exec-7] c.j.b.F.controller.WebViewController     : Acessando página de ofertas
+2025-05-19T16:07:46.460-03:00  INFO 18308 --- [FlightMatrix] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T16:07:46.462-03:00  INFO 18308 --- [FlightMatrix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-19T16:07:46.465-03:00  INFO 18308 --- [FlightMatrix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-19T16:09:35.072-03:00  INFO 3576 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : Starting FlightMatrixApplication using Java 23.0.2 with PID 3576 (C:\Users\Joel\Desktop\FlightMatrix\target\classes started by Joel in C:\Users\Joel\Desktop\FlightMatrix)
+2025-05-19T16:09:35.075-03:00  INFO 3576 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-05-19T16:09:35.893-03:00  INFO 3576 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-19T16:09:35.978-03:00  INFO 3576 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 7 JPA repository interfaces.
+2025-05-19T16:09:36.691-03:00  INFO 3576 --- [FlightMatrix] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-19T16:09:36.706-03:00  INFO 3576 --- [FlightMatrix] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-19T16:09:36.706-03:00  INFO 3576 --- [FlightMatrix] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-05-19T16:09:36.787-03:00  INFO 3576 --- [FlightMatrix] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-19T16:09:36.787-03:00  INFO 3576 --- [FlightMatrix] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1644 ms
+2025-05-19T16:09:36.829-03:00  INFO 3576 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-19T16:09:37.075-03:00  INFO 3576 --- [FlightMatrix] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:flightmatrixdb user=SA
+2025-05-19T16:09:37.077-03:00  INFO 3576 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-19T16:09:37.095-03:00  INFO 3576 --- [FlightMatrix] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:flightmatrixdb'
+2025-05-19T16:09:37.254-03:00  INFO 3576 --- [FlightMatrix] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-19T16:09:37.323-03:00  INFO 3576 --- [FlightMatrix] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-19T16:09:37.365-03:00  INFO 3576 --- [FlightMatrix] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-19T16:09:37.668-03:00  INFO 3576 --- [FlightMatrix] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-19T16:09:37.721-03:00  WARN 3576 --- [FlightMatrix] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-19T16:09:38.889-03:00  INFO 3576 --- [FlightMatrix] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-19T16:09:38.991-03:00  INFO 3576 --- [FlightMatrix] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T16:09:39.475-03:00  INFO 3576 --- [FlightMatrix] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-19T16:09:40.480-03:00  WARN 3576 --- [FlightMatrix] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-19T16:09:40.509-03:00  INFO 3576 --- [FlightMatrix] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2025-05-19T16:09:40.928-03:00  INFO 3576 --- [FlightMatrix] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-05-19T16:09:40.945-03:00  INFO 3576 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Inicializando fontes de passagens aéreas...
+2025-05-19T16:09:41.033-03:00  INFO 3576 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Nenhuma fonte cadastrada. Inicializando fontes padrão...
+2025-05-19T16:09:41.072-03:00  INFO 3576 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Fontes padrão inicializadas com sucesso: 3 fontes cadastradas
+2025-05-19T16:09:41.073-03:00  INFO 3576 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : Started FlightMatrixApplication in 6.527 seconds (process running for 7.014)
+2025-05-19T16:10:17.310-03:00  INFO 3576 --- [FlightMatrix] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-19T16:10:17.310-03:00  INFO 3576 --- [FlightMatrix] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-19T16:10:17.312-03:00  INFO 3576 --- [FlightMatrix] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-05-19T16:11:31.371-03:00  INFO 3576 --- [FlightMatrix] [http-nio-8080-exec-4] c.j.b.F.controller.DirectAPIController   : Busca direta com volta: SSA -> BHZ , ida: 2025-05-20, volta: 2025-06-19
+2025-05-19T16:12:10.963-03:00  INFO 3576 --- [FlightMatrix] [http-nio-8080-exec-8] c.j.b.F.controller.DirectAPIController   : Busca direta com volta: SSA -> BHZ , ida: 2025-05-20, volta: 2025-06-19
+2025-05-19T16:17:30.190-03:00  INFO 3576 --- [FlightMatrix] [http-nio-8080-exec-3] c.j.b.F.controller.DirectAPIController   : Busca direta com volta: GRU -> JFK, ida: 2025-05-20, volta: 2025-06-19
+2025-05-19T16:26:22.151-03:00  INFO 3576 --- [FlightMatrix] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T16:26:22.154-03:00  INFO 3576 --- [FlightMatrix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-19T16:26:22.157-03:00  INFO 3576 --- [FlightMatrix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-19T16:26:27.920-03:00  INFO 13556 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : Starting FlightMatrixApplication using Java 23.0.2 with PID 13556 (C:\Users\Joel\Desktop\FlightMatrix\target\classes started by Joel in C:\Users\Joel\Desktop\FlightMatrix)
+2025-05-19T16:26:27.922-03:00  INFO 13556 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-05-19T16:26:28.797-03:00  INFO 13556 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-19T16:26:28.883-03:00  INFO 13556 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 7 JPA repository interfaces.
+2025-05-19T16:26:29.657-03:00  INFO 13556 --- [FlightMatrix] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-19T16:26:29.672-03:00  INFO 13556 --- [FlightMatrix] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-19T16:26:29.673-03:00  INFO 13556 --- [FlightMatrix] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-05-19T16:26:29.760-03:00  INFO 13556 --- [FlightMatrix] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-19T16:26:29.761-03:00  INFO 13556 --- [FlightMatrix] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1762 ms
+2025-05-19T16:26:29.805-03:00  INFO 13556 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-19T16:26:30.067-03:00  INFO 13556 --- [FlightMatrix] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:flightmatrixdb user=SA
+2025-05-19T16:26:30.069-03:00  INFO 13556 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-19T16:26:30.087-03:00  INFO 13556 --- [FlightMatrix] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:flightmatrixdb'
+2025-05-19T16:26:30.273-03:00  INFO 13556 --- [FlightMatrix] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-19T16:26:30.356-03:00  INFO 13556 --- [FlightMatrix] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-19T16:26:30.413-03:00  INFO 13556 --- [FlightMatrix] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-19T16:26:30.732-03:00  INFO 13556 --- [FlightMatrix] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-19T16:26:30.786-03:00  WARN 13556 --- [FlightMatrix] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-19T16:26:32.044-03:00  INFO 13556 --- [FlightMatrix] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-19T16:26:32.179-03:00  INFO 13556 --- [FlightMatrix] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T16:26:32.652-03:00  INFO 13556 --- [FlightMatrix] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-19T16:26:33.754-03:00  WARN 13556 --- [FlightMatrix] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-19T16:26:33.787-03:00  INFO 13556 --- [FlightMatrix] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2025-05-19T16:26:34.220-03:00  INFO 13556 --- [FlightMatrix] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-05-19T16:26:34.235-03:00  INFO 13556 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Inicializando fontes de passagens aéreas...
+2025-05-19T16:26:34.335-03:00  INFO 13556 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Nenhuma fonte cadastrada. Inicializando fontes padrão...
+2025-05-19T16:26:34.373-03:00  INFO 13556 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Fontes padrão inicializadas com sucesso: 3 fontes cadastradas
+2025-05-19T16:26:34.374-03:00  INFO 13556 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : Started FlightMatrixApplication in 7.026 seconds (process running for 7.539)
+2025-05-19T16:26:45.458-03:00  INFO 13556 --- [FlightMatrix] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-19T16:26:45.459-03:00  INFO 13556 --- [FlightMatrix] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-19T16:26:45.460-03:00  INFO 13556 --- [FlightMatrix] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-19T16:27:00.731-03:00  INFO 13556 --- [FlightMatrix] [http-nio-8080-exec-4] c.j.b.F.controller.DirectAPIController   : Busca direta com volta: JFK -> LAX, ida: 2025-05-20, volta: 2025-06-19
+2025-05-19T16:28:02.479-03:00  INFO 13556 --- [FlightMatrix] [http-nio-8080-exec-5] c.j.b.F.controller.DirectAPIController   : Busca direta com volta: SSA -> BHZ, ida: 2025-05-20, volta: 2025-06-19
+2025-05-19T16:29:46.851-03:00  INFO 13556 --- [FlightMatrix] [http-nio-8080-exec-8] c.j.b.F.controller.DirectAPIController   : Busca direta somente ida: SSA -> BHZ , data: 2025-05-20
+2025-05-19T16:29:48.021-03:00 ERROR 13556 --- [FlightMatrix] [http-nio-8080-exec-8] c.j.b.F.controller.DirectAPIController   : Erro na chamada à API: 404 - {"message":"Endpoint '\/booking-app\/flights\/search-one-way' does not exist"}
+2025-05-19T16:30:36.369-03:00  INFO 13556 --- [FlightMatrix] [http-nio-8080-exec-10] c.j.b.F.controller.DirectAPIController   : Busca direta com volta: SSA -> BHZ , ida: 2025-05-20, volta: 2025-06-19
+2025-05-19T16:33:14.399-03:00  INFO 13556 --- [FlightMatrix] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T16:33:14.401-03:00  INFO 13556 --- [FlightMatrix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-19T16:33:14.404-03:00  INFO 13556 --- [FlightMatrix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-05-19T16:33:18.613-03:00  INFO 5284 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : Starting FlightMatrixApplication using Java 23.0.2 with PID 5284 (C:\Users\Joel\Desktop\FlightMatrix\target\classes started by Joel in C:\Users\Joel\Desktop\FlightMatrix)
+2025-05-19T16:33:18.616-03:00  INFO 5284 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-05-19T16:33:19.472-03:00  INFO 5284 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-19T16:33:19.555-03:00  INFO 5284 --- [FlightMatrix] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 7 JPA repository interfaces.
+2025-05-19T16:33:20.276-03:00  INFO 5284 --- [FlightMatrix] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-19T16:33:20.291-03:00  INFO 5284 --- [FlightMatrix] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-19T16:33:20.291-03:00  INFO 5284 --- [FlightMatrix] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-05-19T16:33:20.379-03:00  INFO 5284 --- [FlightMatrix] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-19T16:33:20.380-03:00  INFO 5284 --- [FlightMatrix] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1692 ms
+2025-05-19T16:33:20.422-03:00  INFO 5284 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-19T16:33:20.671-03:00  INFO 5284 --- [FlightMatrix] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:flightmatrixdb user=SA
+2025-05-19T16:33:20.673-03:00  INFO 5284 --- [FlightMatrix] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-19T16:33:20.693-03:00  INFO 5284 --- [FlightMatrix] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:flightmatrixdb'
+2025-05-19T16:33:20.871-03:00  INFO 5284 --- [FlightMatrix] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-19T16:33:20.950-03:00  INFO 5284 --- [FlightMatrix] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-05-19T16:33:20.996-03:00  INFO 5284 --- [FlightMatrix] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-19T16:33:21.316-03:00  INFO 5284 --- [FlightMatrix] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-19T16:33:21.367-03:00  WARN 5284 --- [FlightMatrix] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-19T16:33:22.602-03:00  INFO 5284 --- [FlightMatrix] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-19T16:33:22.709-03:00  INFO 5284 --- [FlightMatrix] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T16:33:23.224-03:00  INFO 5284 --- [FlightMatrix] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-19T16:33:24.345-03:00  WARN 5284 --- [FlightMatrix] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-19T16:33:24.377-03:00  INFO 5284 --- [FlightMatrix] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2025-05-19T16:33:24.802-03:00  INFO 5284 --- [FlightMatrix] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-05-19T16:33:24.820-03:00  INFO 5284 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Inicializando fontes de passagens aéreas...
+2025-05-19T16:33:24.915-03:00  INFO 5284 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Nenhuma fonte cadastrada. Inicializando fontes padrão...
+2025-05-19T16:33:24.955-03:00  INFO 5284 --- [FlightMatrix] [main] c.j.b.FlightMatrix.Config.AdapterConfig  : Fontes padrão inicializadas com sucesso: 3 fontes cadastradas
+2025-05-19T16:33:24.955-03:00  INFO 5284 --- [FlightMatrix] [main] c.j.b.F.FlightMatrixApplication          : Started FlightMatrixApplication in 6.912 seconds (process running for 7.423)
+2025-05-19T16:33:40.202-03:00  INFO 5284 --- [FlightMatrix] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-19T16:33:40.203-03:00  INFO 5284 --- [FlightMatrix] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-19T16:33:40.204-03:00  INFO 5284 --- [FlightMatrix] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-19T16:33:46.380-03:00  INFO 5284 --- [FlightMatrix] [http-nio-8080-exec-2] c.j.b.F.controller.DirectAPIController   : Busca direta com volta: SSA -> BHZ, ida: 2025-05-20, volta: 2025-06-19
+2025-05-19T16:40:29.700-03:00  INFO 5284 --- [FlightMatrix] [http-nio-8080-exec-6] c.j.b.F.controller.DirectAPIController   : Busca direta com volta: SSA -> BHZ, ida: 2025-05-20, volta: 2025-06-19
+2025-05-19T16:42:37.724-03:00  INFO 5284 --- [FlightMatrix] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-19T16:42:37.727-03:00  INFO 5284 --- [FlightMatrix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-05-19T16:42:37.729-03:00  INFO 5284 --- [FlightMatrix] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

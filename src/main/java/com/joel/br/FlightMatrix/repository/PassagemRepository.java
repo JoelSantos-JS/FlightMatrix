@@ -48,4 +48,6 @@ public interface PassagemRepository extends JpaRepository<Passagem, Long> {
     );
 
     List<Passagem> findByFonte(FontePassagem fonte);
+
+    List<Passagem> findByOrigemCodigoAndDestinoCodigoAndDataIdaBetween(String codigoOrigem, String codigoDestino, LocalDate dataInicio, LocalDate dataFim);
 }

@@ -37,12 +37,20 @@ public class Passagem {
 
     private String companhiaAerea;
 
+    @Column(length = 500)
+    private String logoUrl;
+
     private Integer escalas;
 
+    private Integer duracaoMinutos;
 
     private LocalDateTime dataHoraConsulta;
 
     private String moeda;
+
+    private String moedaOriginal;
+
+    private BigDecimal precoOriginal;
 
     private String url;
 

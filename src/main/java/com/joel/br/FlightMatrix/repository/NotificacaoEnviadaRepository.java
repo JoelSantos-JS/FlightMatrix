@@ -4,6 +4,7 @@ import com.joel.br.FlightMatrix.models.Alerta;
 import com.joel.br.FlightMatrix.models.NotificacaoEnviada;
 import com.joel.br.FlightMatrix.models.Passagem;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -21,4 +22,7 @@ public interface NotificacaoEnviadaRepository  extends JpaRepository<Notificacao
     Optional<NotificacaoEnviada> findByAlertaAndPassagem(Alerta alerta, Passagem passagem);
 
     List<NotificacaoEnviada> findByTipoNotificacao(String tipoNotificacao);
+    
+    @Transactional
+    void deleteByAlerta(Alerta alerta);
 }

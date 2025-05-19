@@ -20,6 +20,8 @@ public class FontePassagem  {
     @Column(nullable = false, unique = true)
     private String nome;
 
+    @Column(columnDefinition = "TEXT")
+    private String descricao;
 
     @Column(nullable = false)
     private String url;

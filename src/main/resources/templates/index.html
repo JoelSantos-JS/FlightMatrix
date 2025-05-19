@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlightMatrix - Caçador de Tarifas Aéreas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #001f3f 0%, #1e3c72 100%);
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 30px;
+        }
+        .search-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: -50px;
+            position: relative;
+        }
+        .feature-box {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+        }
+        .feature-box i {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #1e3c72;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header e Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <strong>Flight</strong>Matrix
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ofertas">Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/api/passagens/ofertas?origem=GRU&destino=JFK&dataInicio=2023-06-01&dataFim=2023-07-30">API de Ofertas</a>
+                    </li>
+                    <li class="nav-item" th:if="${showDirectApiLink}">
+                        <a class="nav-link" href="/direct/" style="color: #ff6b6b;">
+                            Consulta Direta API <span class="badge bg-warning text-dark">Novo</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container text-center">
+            <h1 class="display-4">Encontre as Melhores Tarifas Aéreas</h1>
+            <p class="lead">O caçador inteligente de passagens com preços imbatíveis</p>
+        </div>
+    </div>
+
+    <!-- Formulário de Busca -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="search-box">
+                    <form action="/busca" method="get">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label for="origem" class="form-label">Origem</label>
+                                <select name="origem" id="origem" class="form-select" required>
+                                    <option value="">Selecione o aeroporto</option>
+                                    <option th:each="aeroporto : ${aeroportos}"
+                                            th:value="${aeroporto.codigo}"
+                                            th:text="${aeroporto.codigo + ' - ' + aeroporto.cidade}">
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="destino" class="form-label">Destino</label>
+                                <select name="destino" id="destino" class="form-select" required>
+                                    <option value="">Selecione o aeroporto</option>
+                                    <option th:each="aeroporto : ${aeroportos}"
+                                            th:value="${aeroporto.codigo}"
+                                            th:text="${aeroporto.codigo + ' - ' + aeroporto.cidade}">
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="dataIda" class="form-label">Data de Ida</label>
+                                <input type="date" id="dataIda" name="dataIda" class="form-control" 
+                                       th:min="${hoje}" th:value="${amanha}" required>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="dataVolta" class="form-label">Data de Volta</label>
+                                <input type="date" id="dataVolta" name="dataVolta" class="form-control" 
+                                       th:min="${amanha}">
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <button type="submit" class="btn btn-primary w-100">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <i class="fas fa-search"></i>
+                    <h3>Busca Inteligente</h3>
+                    <p>Nosso algoritmo inteligente busca e compara preços em diversas fontes para encontrar as melhores ofertas.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <i class="fas fa-bell"></i>
+                    <h3>Alertas de Preço</h3>
+                    <p>Receba notificações quando encontrarmos preços imperdíveis para os destinos que você deseja visitar.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <i class="fas fa-percent"></i>
+                    <h3>Promoções Exclusivas</h3>
+                    <p>Identifica quedas de preço e oferece automaticamente as melhores oportunidades de economia.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Seção de link para a API Direta -->
+        <div class="row mt-4" th:if="${showDirectApiLink}">
+            <div class="col-12">
+                <div class="alert alert-primary d-flex align-items-center" role="alert">
+                    <i class="fas fa-code me-2"></i>
+                    <div>
+                        <strong>Para desenvolvedores:</strong> 
+                        Experimente nossa <a href="/direct/" class="alert-link">interface direta para a API Booking Data</a> 
+                        usando AsyncHttpClient para requisições HTTP assíncronas.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white mt-5 py-4">
+        <div class="container text-center">
+            <p>© 2023 FlightMatrix - Caçador de Tarifas Aéreas | Versão de Demonstração</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html> 

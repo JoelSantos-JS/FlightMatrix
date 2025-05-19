@@ -36,7 +36,7 @@ public class ResumoPromocoesScheduler {
     /**
      * Envia resumo diário de promoções ao meio-dia
      */
-    @Scheduled(cron = "${app.scheduler.resumo-diario.cron}")
+    @Scheduled(cron = "${app.scheduler.resumo-diario.cron:0 0 12 * * ?}")
     public void enviarResumoDiario() {
         log.info("Iniciando envio de resumo diário de promoções");
 

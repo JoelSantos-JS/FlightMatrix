@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -38,6 +39,12 @@ public class NotificacaoEnviada {
 
     @Column(columnDefinition = "TEXT")
     private String conteudo;
+    
+    @Column
+    private Integer quantidadeOfertas;
+    
+    @Column(precision = 10, scale = 2)
+    private BigDecimal precoMinimo;
 
     @PrePersist
     protected void onCreate() {

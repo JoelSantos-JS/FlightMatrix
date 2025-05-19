@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.ehcache.org/v3"
+        xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core-3.0.xsd">
+
+    <!-- Cache para aeroportos (validade longa) -->
+    <cache-template name="longLivedCache">
+        <expiry>
+            <ttl unit="days">30</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">500</heap>
+        </resources>
+    </cache-template>
+
+    <!-- Cache para dados transitórios (validade curta) -->
+    <cache-template name="shortLivedCache">
+        <expiry>
+            <ttl unit="minutes">30</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">1000</heap>
+        </resources>
+    </cache-template>
+
+    <!-- Cache para dados de médio prazo -->
+    <cache-template name="mediumLivedCache">
+        <expiry>
+            <ttl unit="hours">6</ttl>
+        </expiry>
+        <resources>
+            <heap unit="entries">1000</heap>
+        </resources>
+    </cache-template>
+
+    <!-- Cache específicos baseados nos templates -->
+    <cache alias="aeroportos" uses-template="longLivedCache"/>
+    <cache alias="buscaPassagens" uses-template="shortLivedCache"/>
+    <cache alias="historicoPrecos" uses-template="mediumLivedCache"/>
+    <cache alias="melhoresOfertas" uses-template="shortLivedCache"/>
+    <cache alias="statusApis" uses-template="shortLivedCache">
+        <expiry>
+            <ttl unit="minutes">5</ttl>
+        </expiry>
+    </cache>
+</config> 
